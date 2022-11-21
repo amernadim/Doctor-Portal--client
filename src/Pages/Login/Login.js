@@ -10,8 +10,10 @@ const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const {user, signIn,googleSignIn } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
+
     const [loginUserEmail,setLoginUserEmail] = useState('');
     const [token] = useToken(loginUserEmail);
+    
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -36,6 +38,8 @@ const Login = () => {
                 setLoginError(error.message);
             });
     }
+
+
     const handleGoogleSign =  () => {
         googleSignIn() 
             .then(result => {
